@@ -1,5 +1,5 @@
-export function Lista() {
+export function List() {
 	return (
-		<h1>Componente Lista</h1>
+		<h1>Componente List</h1>
 	)
 }

@@ -55,7 +55,8 @@ namespace net_employee_CRUD.Controllers
         {
             var employee = await dbContext.Employees.FirstOrDefaultAsync(e => e.Id == id);
             dbContext.Employees.Remove(employee);
-            return StatusCode(StatusCodes.Status200OK, new { mensaje = "Deleted: " + employee });
+            await dbContext.SaveChangesAsync();
+            return StatusCode(StatusCodes.Status200OK, new { mensaje = "Deleted employee with id: " + id});
         }
 
     }

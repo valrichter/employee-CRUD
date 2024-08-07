@@ -17,10 +17,7 @@ public partial class EmployeeDataContext : DbContext
 
     public virtual DbSet<Employee> Employees { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) 
-    {
-    
-    }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {}
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Employee>(entity =>
@@ -31,9 +28,7 @@ public partial class EmployeeDataContext : DbContext
 
             entity.HasIndex(e => e.Email, "employee_email_key").IsUnique();
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
                 .HasColumnName("created_at");

@@ -32,6 +32,28 @@ export function NuevoEmpleado() {
     setEmpleado({ ...empleado, [inputName]: inputValue });
   };
 
+  const save = async () => {
+    const response = await fetch(`${appsettings.apiUrl}employee/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(empleado),
+    });
+
+    if (response.ok) {
+      navigate("/");
+    } else {
+      Swal.fire({
+        title: "Error!",
+        icon: "warning",
+      });
+    }
+  };
+  const back = () => {
+    navigate("/");
+  };
+
   return (
     <Container>
       <Row>
@@ -67,8 +89,12 @@ export function NuevoEmpleado() {
               />
             </FormGroup>
           </Form>
-					<Button color="primary" className="me-4" onClick={() => {}}>Save</Button>
-					<Button color="secondary" onClick={() => navigate("/")} >Back</Button>
+          <Button color="primary" className="me-4" onClick={save}>
+            Save
+          </Button>
+          <Button color="secondary" onClick={back}>
+            Back
+          </Button>
         </Col>
       </Row>
     </Container>

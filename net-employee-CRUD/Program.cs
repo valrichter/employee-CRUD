@@ -16,6 +16,14 @@ builder.Services.AddDbContext<EmployeeDataContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("StringSQL"));
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PoliticCORS", app =>
+    {
+        app.AllowAnyOrigin().AllowAnyHeader().AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,6 +32,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("PoliticCORS");
+
 
 app.UseAuthorization();
 

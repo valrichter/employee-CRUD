@@ -17,8 +17,9 @@ public partial class EmployeeDataContext : DbContext
 
     public virtual DbSet<Employee> Employees { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { 
-        
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) 
+    {
+    
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -28,11 +29,13 @@ public partial class EmployeeDataContext : DbContext
 
             entity.ToTable("employee");
 
+            entity.HasIndex(e => e.Email, "employee_email_key").IsUnique();
+
             entity.Property(e => e.Id)
                 .ValueGeneratedNever()
                 .HasColumnName("id");
             entity.Property(e => e.CreatedAt)
-                .HasColumnType("timestamp without time zone")
+                .HasDefaultValueSql("now()")
                 .HasColumnName("created_at");
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
@@ -40,7 +43,9 @@ public partial class EmployeeDataContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(50)
                 .HasColumnName("name");
-            entity.Property(e => e.Salary).HasColumnName("salary");
+            entity.Property(e => e.Salary)
+                .HasDefaultValue(0)
+                .HasColumnName("salary");
         });
 
         OnModelCreatingPartial(modelBuilder);

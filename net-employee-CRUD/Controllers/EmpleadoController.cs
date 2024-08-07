@@ -35,7 +35,6 @@ namespace net_employee_CRUD.Controllers
         [Route("new")]
         public async Task<IActionResult> newEmployee([FromBody]Employee employee)
         {
-            employee.CreatedAt = DateTime.Now;
             await dbContext.Employees.AddAsync(employee);
             await dbContext.SaveChangesAsync();
             return StatusCode(StatusCodes.Status200OK, new {mensaje = employee});

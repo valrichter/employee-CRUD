@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from "react";
 import { appsettings } from "../setting/appsetings";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { IEployee } from "../Interfaces/IEmployee";
+import { IEmployee } from "../Interfaces/IEmployee";
 import {
   Container,
   Row,
@@ -21,7 +21,7 @@ const initalEmpleado = {
 };
 
 export function NuevoEmpleado() {
-  const [empleado, setEmpleado] = useState<IEployee>(initalEmpleado);
+  const [empleado, setEmpleado] = useState<IEmployee>(initalEmpleado);
   const navigate = useNavigate();
 
   const inputChangeValue = (event: ChangeEvent<HTMLInputElement>) => {

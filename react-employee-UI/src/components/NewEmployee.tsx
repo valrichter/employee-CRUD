@@ -27,7 +27,6 @@ export function NuevoEmpleado() {
   const inputChangeValue = (event: ChangeEvent<HTMLInputElement>) => {
     const inputName = event.target.name;
     const inputValue = event.target.value;
-    console.log(inputName, ":", inputValue);
 
     setEmpleado({ ...empleado, [inputName]: inputValue });
   };
@@ -46,6 +45,7 @@ export function NuevoEmpleado() {
     } else {
       Swal.fire({
         title: "Error!",
+        text: "The employee was not created!",
         icon: "warning",
       });
     }

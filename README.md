@@ -1,4 +1,4 @@
-# Creacion de un CRUD de empleados con React <img alt="react" width="25" src="https://cdn.simpleicons.org/react/61DAFB" /> y .NET <img alt="net" width="25" src="https://devicon-website.vercel.app/api/dotnetcore/plain.svg?color=%23623697"></img>
+# CRUD de empleados echo con React <img alt="react" width="25" src="https://cdn.simpleicons.org/react/61DAFB" /> y .NET <img alt="net" width="25" src="https://devicon-website.vercel.app/api/dotnetcore/plain.svg?color=%23623697"></img>
 Desarrollé una aplicación CRUD (Crear, Leer, Actualizar, Eliminar) para la gestión de empleados, utilizando React en el frontend y .NET en el backend. Cada empleado en la aplicación tiene los atributos de nombre, email y salario.  
 React se encarga de la interfaz de usuario, permitiendo a los usuarios interactuar con la aplicación, mientras que .NET maneja la lógica del servidor y la persistencia de datos, asegurando que las operaciones CRUD se realicen de manera eficiente y segura.  
 Para la base de datos, utilicé PostgreSQL, que fue desplegada en un contenedor Docker, lo que facilitó la configuración y el manejo de la misma.

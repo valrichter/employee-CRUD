@@ -24,7 +24,7 @@ namespace net_employee_CRUD.Controllers
         }
 
         [HttpGet]
-        [Route("employee/{id:int}")]
+        [Route("{id:int}")]
         public async Task<IActionResult> GetEmployee(int id)
         {
             var employee = await dbContext.Employees.FirstOrDefaultAsync(e => e.Id == id);
